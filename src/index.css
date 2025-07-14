@@ -159,7 +159,6 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-gold-glow);
   }
 }
-}
 
 @layer base {
   * {
