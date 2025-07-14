@@ -39,43 +39,95 @@ export const MarqueeLightsEditor = () => {
           </div>
 
           {/* Right Side - Marquee Lights Preview */}
-          <div className="bg-card border border-border rounded-xl p-8 min-h-[400px] flex items-center justify-center">
-            <div className="w-full max-w-lg">
-              <div className="bg-ash-dark rounded-lg p-8 relative overflow-hidden">
+          <div className="bg-black border border-border rounded-xl p-8 min-h-[400px] flex items-center justify-center overflow-hidden">
+            <div className="w-full max-w-4xl">
+              <div className="bg-black rounded-lg p-8 relative">
                 {/* Marquee Lights Display */}
-                <div className="flex flex-wrap justify-center gap-2">
+                <div className="flex flex-wrap justify-center gap-4 items-center min-h-[200px]">
                   {text.split('').map((char, index) => (
                     <div
                       key={index}
-                      className="relative w-12 h-12 bg-ash border-2 border-gold rounded-full flex items-center justify-center"
+                      className="relative"
                       style={{
-                        animationDelay: `${index * 0.1}s`
+                        animationDelay: `${index * 0.15}s`
                       }}
                     >
-                      {/* Light bulb effect */}
-                      <div className="absolute inset-0 rounded-full bg-gold opacity-20 animate-pulse"></div>
-                      <div className="absolute inset-1 rounded-full bg-gradient-to-br from-gold to-accent opacity-30"></div>
-                      
-                      {/* Character */}
-                      <span className="font-futura text-foreground text-lg font-bold z-10 relative">
-                        {char === ' ' ? '•' : char}
-                      </span>
-                      
-                      {/* Glow effect */}
-                      <div className="absolute inset-0 rounded-full shadow-gold-glow opacity-60"></div>
+                      {/* Main bulb container */}
+                      <div className="relative w-16 h-16 flex items-center justify-center">
+                        {/* Outer glow rings */}
+                        <div 
+                          className="absolute inset-0 rounded-full animate-pulse"
+                          style={{
+                            background: 'radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, rgba(255, 215, 0, 0.2) 30%, rgba(255, 215, 0, 0.1) 60%, transparent 100%)',
+                            filter: 'blur(8px)',
+                            transform: 'scale(1.8)',
+                            animationDuration: '2s',
+                            animationDelay: `${index * 0.1}s`
+                          }}
+                        ></div>
+                        
+                        {/* Middle glow */}
+                        <div 
+                          className="absolute inset-0 rounded-full"
+                          style={{
+                            background: 'radial-gradient(circle, rgba(255, 215, 0, 0.6) 0%, rgba(255, 215, 0, 0.3) 50%, transparent 70%)',
+                            filter: 'blur(4px)',
+                            transform: 'scale(1.4)'
+                          }}
+                        ></div>
+                        
+                        {/* Inner bulb */}
+                        <div 
+                          className="relative w-12 h-12 rounded-full flex items-center justify-center border-2 animate-pulse"
+                          style={{
+                            background: 'radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 215, 0, 0.9), rgba(218, 165, 32, 0.8))',
+                            borderColor: 'rgba(255, 215, 0, 0.8)',
+                            boxShadow: `
+                              0 0 10px rgba(255, 215, 0, 0.8),
+                              0 0 20px rgba(255, 215, 0, 0.6),
+                              0 0 30px rgba(255, 215, 0, 0.4),
+                              inset 0 0 10px rgba(255, 255, 255, 0.3)
+                            `,
+                            animationDuration: '3s',
+                            animationDelay: `${index * 0.2}s`
+                          }}
+                        >
+                          {/* Character */}
+                          <span 
+                            className="font-futura text-black text-xl font-black z-10 relative drop-shadow-sm"
+                            style={{
+                              textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
+                            }}
+                          >
+                            {char === ' ' ? '★' : char}
+                          </span>
+                          
+                          {/* Highlight reflection */}
+                          <div 
+                            className="absolute top-1 left-1 w-3 h-3 rounded-full"
+                            style={{
+                              background: 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, transparent 70%)',
+                              filter: 'blur(1px)'
+                            }}
+                          ></div>
+                        </div>
+                        
+                        {/* Flickering animation overlay */}
+                        <div 
+                          className="absolute inset-0 rounded-full opacity-0"
+                          style={{
+                            background: 'rgba(255, 215, 0, 0.3)',
+                            animation: `flicker 4s infinite ${index * 0.3}s`
+                          }}
+                        ></div>
+                      </div>
                     </div>
                   ))}
                 </div>
-
-                {/* Decorative border lights */}
-                <div className="absolute top-2 left-2 w-3 h-3 bg-gold rounded-full animate-pulse"></div>
-                <div className="absolute top-2 right-2 w-3 h-3 bg-gold rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute bottom-2 left-2 w-3 h-3 bg-gold rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute bottom-2 right-2 w-3 h-3 bg-gold rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
               </div>
               
-              <p className="text-center font-manrope text-sm text-muted-foreground mt-4">
-                Live Preview
+              <p className="text-center font-manrope text-sm text-gold mt-6 opacity-80">
+                ✨ Live Marquee Preview ✨
               </p>
             </div>
           </div>
