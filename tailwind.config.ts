@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				futura: ['Futura Condensed Extra Bold', 'Arial Black', 'sans-serif'],
+				manrope: ['Manrope', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -52,6 +56,15 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				gold: {
+					DEFAULT: 'hsl(var(--gold))',
+					foreground: 'hsl(var(--gold-foreground))'
+				},
+				ash: {
+					DEFAULT: 'hsl(var(--ash))',
+					light: 'hsl(var(--ash-light))',
+					dark: 'hsl(var(--ash-dark))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -62,6 +75,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			letterSpacing: {
+				'ultra-wide': '0.25em',
+			},
+			backgroundImage: {
+				'gradient-gold': 'var(--gradient-gold)',
+				'gradient-ash': 'var(--gradient-ash)',
+				'gradient-overlay': 'var(--gradient-overlay)',
+			},
+			boxShadow: {
+				'premium': 'var(--shadow-premium)',
+				'gold-glow': 'var(--shadow-gold-glow)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
