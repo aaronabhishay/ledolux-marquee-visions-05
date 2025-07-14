@@ -49,10 +49,10 @@ export const Hero = () => {
       {/* Bottom Footer Labels */}
       <div className="absolute bottom-6 left-0 right-0 flex justify-between px-6 z-10">
         <span className="font-manrope text-xs text-white/50">
-          ✦ Founded to Leave a Mark, 2020
+          ✦ Founded to Light it Up, 2020
         </span>
         <span className="font-manrope text-xs text-white/60">
-          ©️ Gentleren
+          ©️ LEDOLUX
         </span>
       </div>
     </section>
