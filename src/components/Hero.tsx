@@ -11,12 +11,9 @@ export const Hero = () => {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: 'brightness(0.4)' }}
         >
           <source src="https://res.cloudinary.com/dpe5a0j6g/video/upload/v1752495612/Sponsoship_pghsyt.mp4" type="video/mp4" />
         </video>
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-overlay"></div>
       </div>
 
       {/* Hero Content - Left Side */}
