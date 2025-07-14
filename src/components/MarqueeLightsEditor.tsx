@@ -2,6 +2,45 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
+// Import all letter images
+import letterA from "@/assets/letters/A.png";
+import letterB from "@/assets/letters/B.png";
+import letterC from "@/assets/letters/C.png";
+import letterD from "@/assets/letters/D.png";
+import letterE from "@/assets/letters/E.png";
+import letterF from "@/assets/letters/F.png";
+import letterG from "@/assets/letters/G.png";
+import letterH from "@/assets/letters/H.png";
+import letterI from "@/assets/letters/I.png";
+import letterJ from "@/assets/letters/J.png";
+import letterK from "@/assets/letters/K.png";
+import letterL from "@/assets/letters/L.png";
+import letterM from "@/assets/letters/M.png";
+import letterN from "@/assets/letters/N.png";
+import letterO from "@/assets/letters/O.png";
+import letterP from "@/assets/letters/P.png";
+import letterQ from "@/assets/letters/Q.png";
+import letterR from "@/assets/letters/R.png";
+import letterS from "@/assets/letters/S.png";
+import letterT from "@/assets/letters/T.png";
+import letterU from "@/assets/letters/U.png";
+import letterV from "@/assets/letters/V.png";
+import letterW from "@/assets/letters/W.png";
+import letterX from "@/assets/letters/X.png";
+import letterY from "@/assets/letters/Y.png";
+import letterZ from "@/assets/letters/Z.png";
+import letterStar from "@/assets/letters/STAR.png";
+
+// Letter mapping object
+const letterImages: { [key: string]: string } = {
+  'A': letterA, 'B': letterB, 'C': letterC, 'D': letterD, 'E': letterE,
+  'F': letterF, 'G': letterG, 'H': letterH, 'I': letterI, 'J': letterJ,
+  'K': letterK, 'L': letterL, 'M': letterM, 'N': letterN, 'O': letterO,
+  'P': letterP, 'Q': letterQ, 'R': letterR, 'S': letterS, 'T': letterT,
+  'U': letterU, 'V': letterV, 'W': letterW, 'X': letterX, 'Y': letterY,
+  'Z': letterZ, ' ': letterStar
+};
+
 export const MarqueeLightsEditor = () => {
   const [text, setText] = useState("LEDOLUX");
 
@@ -40,94 +79,44 @@ export const MarqueeLightsEditor = () => {
 
           {/* Right Side - Marquee Lights Preview */}
           <div className="bg-black border border-border rounded-xl p-8 min-h-[400px] flex items-center justify-center overflow-hidden">
-            <div className="w-full max-w-4xl">
+            <div className="w-full max-w-5xl">
               <div className="bg-black rounded-lg p-8 relative">
                 {/* Marquee Lights Display */}
                 <div className="flex flex-wrap justify-center gap-4 items-center min-h-[200px]">
-                  {text.split('').map((char, index) => (
-                    <div
-                      key={index}
-                      className="relative"
-                      style={{
-                        animationDelay: `${index * 0.15}s`
-                      }}
-                    >
-                      {/* Main bulb container */}
-                      <div className="relative w-16 h-16 flex items-center justify-center">
-                        {/* Outer glow rings */}
-                        <div 
-                          className="absolute inset-0 rounded-full animate-pulse"
+                  {text.split('').map((char, index) => {
+                    const letterImage = letterImages[char.toUpperCase()] || letterImages[' '];
+                    return (
+                      <div
+                        key={index}
+                        className="relative animate-fade-in"
+                        style={{
+                          animationDelay: `${index * 0.2}s`
+                        }}
+                      >
+                        <img
+                          src={letterImage}
+                          alt={char === ' ' ? 'space' : char.toUpperCase()}
+                          className="w-20 h-20 object-contain transition-all duration-300 hover:scale-110"
                           style={{
-                            background: 'radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, rgba(255, 215, 0, 0.2) 30%, rgba(255, 215, 0, 0.1) 60%, transparent 100%)',
-                            filter: 'blur(8px)',
-                            transform: 'scale(1.8)',
-                            animationDuration: '2s',
-                            animationDelay: `${index * 0.1}s`
+                            filter: 'drop-shadow(0 0 20px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 40px rgba(255, 215, 0, 0.3))',
                           }}
-                        ></div>
-                        
-                        {/* Middle glow */}
-                        <div 
-                          className="absolute inset-0 rounded-full"
-                          style={{
-                            background: 'radial-gradient(circle, rgba(255, 215, 0, 0.6) 0%, rgba(255, 215, 0, 0.3) 50%, transparent 70%)',
-                            filter: 'blur(4px)',
-                            transform: 'scale(1.4)'
-                          }}
-                        ></div>
-                        
-                        {/* Inner bulb */}
-                        <div 
-                          className="relative w-12 h-12 rounded-full flex items-center justify-center border-2 animate-pulse"
-                          style={{
-                            background: 'radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 215, 0, 0.9), rgba(218, 165, 32, 0.8))',
-                            borderColor: 'rgba(255, 215, 0, 0.8)',
-                            boxShadow: `
-                              0 0 10px rgba(255, 215, 0, 0.8),
-                              0 0 20px rgba(255, 215, 0, 0.6),
-                              0 0 30px rgba(255, 215, 0, 0.4),
-                              inset 0 0 10px rgba(255, 255, 255, 0.3)
-                            `,
-                            animationDuration: '3s',
-                            animationDelay: `${index * 0.2}s`
-                          }}
-                        >
-                          {/* Character */}
-                          <span 
-                            className="font-futura text-black text-xl font-black z-10 relative drop-shadow-sm"
-                            style={{
-                              textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
-                            }}
-                          >
-                            {char === ' ' ? '★' : char}
-                          </span>
-                          
-                          {/* Highlight reflection */}
-                          <div 
-                            className="absolute top-1 left-1 w-3 h-3 rounded-full"
-                            style={{
-                              background: 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, transparent 70%)',
-                              filter: 'blur(1px)'
-                            }}
-                          ></div>
-                        </div>
-                        
-                        {/* Flickering animation overlay */}
-                        <div 
-                          className="absolute inset-0 rounded-full opacity-0"
-                          style={{
-                            background: 'rgba(255, 215, 0, 0.3)',
-                            animation: `flicker 4s infinite ${index * 0.3}s`
-                          }}
-                        ></div>
+                        />
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
+
+                {/* Ambient lighting effect */}
+                <div 
+                  className="absolute inset-0 rounded-lg pointer-events-none"
+                  style={{
+                    background: 'radial-gradient(ellipse at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%)',
+                  }}
+                ></div>
               </div>
               
               <p className="text-center font-manrope text-sm text-gold mt-6 opacity-80">
-                ✨ Live Marquee Preview ✨
+                ✨ Realistic Marquee Preview ✨
               </p>
             </div>
           </div>
