@@ -26,13 +26,19 @@ export const Hero = () => {
           
           {/* Subheading */}
           <p className="font-manrope text-base text-white/80 font-normal max-w-lg leading-relaxed">
-            Event Sponsor? Big Occasion? A Birthday to Remember? Corporate Event? 
-            <span className="block mt-2 text-white/90 font-medium">Leave a Mark.</span>
+            Event Sponsor?
+            <br />
+            Big Occasion?
+            <br />
+            A Birthday to Remember?
+            <br />
+            Corporate Event?
+            <span className="block mt-2 text-white/90 font-medium">Be Memorable.</span>
           </p>
           
           {/* CTA Button */}
           <Button className="bg-white text-black px-6 py-3 rounded-lg font-manrope text-sm font-medium uppercase hover:bg-gray-100 transition-all duration-300 tracking-wider shadow-premium">
-            STEP IN →
+            LIGHT IT UP →
           </Button>
         </div>
       </div>
@@ -40,7 +46,7 @@ export const Hero = () => {
       {/* Right Side Vertical Text */}
       <div className="absolute right-8 top-1/2 transform -translate-y-1/2 rotate-90 hidden lg:block">
         <span className="font-manrope uppercase tracking-ultra-wide text-sm text-white/60">
-          FIELD ENTRY · CHAPTER ONE
+          MARQUEE LIGHTS · SCROLL TO PREVIEW
         </span>
       </div>
 
