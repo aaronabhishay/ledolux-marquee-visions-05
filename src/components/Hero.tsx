@@ -28,12 +28,8 @@ export const Hero = () => {
           <p className="font-manrope text-base text-white/80 font-normal max-w-lg leading-relaxed">
             Event Sponsor?
             <br />
-            Big Occasion?
-            <br />
-            A Birthday to Remember?
-            <br />
-            Corporate Event?
-            <span className="block mt-2 text-white/90 font-medium">Be Memorable.</span>
+            Family Celebration?
+            <span className="block mt-2 text-white/90 font-medium">Make It Memorable.</span>
           </p>
           
           {/* CTA Button */}

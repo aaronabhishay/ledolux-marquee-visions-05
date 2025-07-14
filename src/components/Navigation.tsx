@@ -1,41 +1,72 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 
 export const Navigation = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="absolute top-0 left-0 right-0 z-50 px-8 py-6">
-      <div className="flex items-center justify-between">
-        {/* Logo */}
-        <div className="text-white/80 font-manrope">
-          <span className="uppercase tracking-ultra-wide text-sm font-medium">
+    <>
+      {/* Original Navigation - Hidden on scroll */}
+      <nav className={`absolute top-0 left-0 right-0 z-50 px-8 py-6 transition-opacity duration-500 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <div className="font-manrope text-white/80 text-sm uppercase tracking-widest">
             LEDOLUX
-          </span>
-        </div>
+          </div>
 
-        {/* Center Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          <a 
-            href="#collections" 
-            className="text-white/80 hover:text-white transition-colors font-manrope text-sm font-normal tracking-wider"
-          >
-            COLLECTIONS
-          </a>
-          <a 
-            href="#lighting" 
-            className="text-white/80 hover:text-white transition-colors font-manrope text-sm font-normal tracking-wider"
-          >
-            LIGHTING
-          </a>
-          <a 
-            href="#events" 
-            className="text-white/80 hover:text-white transition-colors font-manrope text-sm font-normal tracking-wider"
-          >
-            EVENTS
-          </a>
-        </div>
+          {/* Center Navigation */}
+          <div className="hidden md:flex space-x-12">
+            <Link to="/how-this-works" className="font-manrope text-white/80 text-sm hover:text-white transition-colors">
+              HOW THIS WORKS
+            </Link>
+            <Link to="/who-we-are" className="font-manrope text-white/80 text-sm hover:text-white transition-colors">
+              WHO WE ARE
+            </Link>
+            <Link to="/contact" className="font-manrope text-white/80 text-sm hover:text-white transition-colors">
+              CONTACT US
+            </Link>
+          </div>
 
-        {/* Theme Toggle */}
-        <ThemeToggle />
-      </div>
-    </nav>
+          {/* Theme Toggle */}
+          <ThemeToggle />
+        </div>
+      </nav>
+
+      {/* Scrolled Navigation - Appears on scroll */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border px-8 py-4 transition-transform duration-500 ${isScrolled ? 'translate-y-0' : '-translate-y-full'}`}>
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <Link to="/" className="font-manrope text-foreground text-sm uppercase tracking-widest font-medium">
+            LEDOLUX
+          </Link>
+
+          {/* Center Navigation */}
+          <div className="hidden md:flex space-x-8">
+            <Link to="/how-this-works" className="font-manrope text-muted-foreground text-sm hover:text-foreground transition-colors">
+              HOW THIS WORKS
+            </Link>
+            <Link to="/who-we-are" className="font-manrope text-muted-foreground text-sm hover:text-foreground transition-colors">
+              WHO WE ARE
+            </Link>
+            <Link to="/contact" className="font-manrope text-muted-foreground text-sm hover:text-foreground transition-colors">
+              CONTACT US
+            </Link>
+          </div>
+
+          {/* Theme Toggle */}
+          <ThemeToggle />
+        </div>
+      </nav>
+    </>
   );
 };
