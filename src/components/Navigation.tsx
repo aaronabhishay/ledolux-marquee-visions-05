@@ -21,7 +21,7 @@ export const Navigation = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="font-manrope text-white/80 text-sm uppercase tracking-widest">
-            LEDOLUX
+            LIGHTING BRAND
           </div>
 
           {/* Center Navigation */}
@@ -47,7 +47,7 @@ export const Navigation = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="font-manrope text-foreground text-sm uppercase tracking-widest font-medium">
-            LEDOLUX
+            LIGHTING BRAND
           </Link>
 
           {/* Center Navigation */}

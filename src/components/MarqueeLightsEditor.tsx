@@ -69,7 +69,7 @@ const breakIntoLines = (text: string): string[] => {
 };
 
 export const MarqueeLightsEditor = () => {
-  const [text, setText] = useState("LEDOLUX");
+  const [text, setText] = useState("LIGHTING BRAND");
 
   return (
     <section className="min-h-screen bg-background py-16 px-8">

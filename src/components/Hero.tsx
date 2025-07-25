@@ -21,7 +21,7 @@ export const Hero = () => {
         <div className="space-y-6">
           {/* Main Heading */}
           <h1 className="font-futura text-hero text-white tracking-tight leading-[1.1]">
-            LEDOLUX
+            LIGHTING BRAND
           </h1>
           
           {/* Subheading */}
@@ -52,7 +52,7 @@ export const Hero = () => {
           ✦ Founded to Light it Up, 2020
         </span>
         <span className="font-manrope text-xs text-white/60">
-          ©️ LEDOLUX
+          ©️ LIGHTING BRAND
         </span>
       </div>
     </section>
