@@ -204,4 +204,21 @@ All colors MUST be HSL.
                 rgba(255, 193, 7, 0.05) 30%, 
                 transparent 70%);
   }
+
+  /* Improved font rendering for marquee letters */
+  .marquee-letter {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Better alignment utilities */
+  .align-marquee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 }
