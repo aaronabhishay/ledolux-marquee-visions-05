@@ -183,3 +183,25 @@ All colors MUST be HSL.
   96% { opacity: 1; }
   98% { opacity: 0; }
 }
+
+/* Enhanced marquee lighting effects */
+@layer utilities {
+  .marquee-glow {
+    filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.4)) 
+            drop-shadow(0 0 16px rgba(255, 193, 7, 0.2))
+            drop-shadow(0 0 24px rgba(255, 193, 7, 0.1));
+  }
+  
+  .marquee-glow-intense {
+    filter: drop-shadow(0 0 12px rgba(255, 193, 7, 0.6)) 
+            drop-shadow(0 0 20px rgba(255, 193, 7, 0.4))
+            drop-shadow(0 0 30px rgba(255, 193, 7, 0.2));
+  }
+  
+  .lighting-ambient {
+    background: radial-gradient(circle at center, 
+                rgba(255, 193, 7, 0.1) 0%, 
+                rgba(255, 193, 7, 0.05) 30%, 
+                transparent 70%);
+  }
+}
